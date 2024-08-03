@@ -1,0 +1,43 @@
+nav.top {
+  width: 100%;
+  max-width: 128rem;
+  margin-inline: auto;
+  padding-block: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & a {
+    position: relative;
+
+    & img {
+      width: 3.2rem;
+      transition: transform .3s;
+    }
+  
+    & img[src*="logo"]:hover {
+      transform: rotate(90deg);
+    }
+
+    & img[src*="shopping"]:hover {
+      transform: rotate(-30deg);
+    }
+
+    &:last-child::after {
+      content: attr(data-shoppingBag);
+      font: 500 1.2rem/130% var(--ff-montserrat);
+      background-color: var(--snitap-sun);
+      padding: .2rem .7rem;
+      border-radius: 50%;
+      position: absolute;
+      right: -.8rem;
+      top: -.8rem;
+    }
+  }
+}
+
+@media (width <= 425px) {
+  nav {
+    padding: 1.2rem 2.4rem;
+  }
+}

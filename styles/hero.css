@@ -1,0 +1,238 @@
+section.hero {
+  width: 100%;
+  max-width: 128rem;
+  margin-inline: auto;
+  padding-block: 4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+
+  & h1 div {
+    display: inline-block;
+    overflow: hidden;
+    height: 8rem;
+    width: min-content;
+    vertical-align: bottom;
+  }
+
+  & h1 span:nth-child(1),
+  & h1 span:nth-child(4) { color: var(--snitap-sky-mid); }
+  & h1 span:nth-child(2) { color: var(--snitap-joy-mid); }
+  & h1 span:nth-child(3) { color: var(--snitap-leaf-mid); }
+
+  & h1 span {
+    display: block;
+    animation: slideUp 6s 3s infinite ease;
+  }
+  
+  /* ===== BUTTONS ===== */
+  & .buttons {
+    display: flex;
+    gap: 3.2rem;
+    margin-top: 4.8rem;
+
+    & .button {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+
+      border-radius: 8rem;
+
+      transition: transform .1s;
+
+      &.buy {
+        padding: 2.4rem 4.8rem;
+        background-color: var(--snitap-sun);
+      }
+
+      &.play span {
+        padding: 2.4rem;
+        border-radius: 50%;
+        background-color: white;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    & .shadow {
+      box-shadow: 
+      0 2px 5px rgba(0 0 0 / .1),
+      0 9px 9px rgba(0 0 0 / .09),
+      0 20px 12px rgba(0 0 0 / .05),
+      0 36px 15px rgba(0 0 0 / .01);
+    }
+  }
+
+  /* ===== PATINS ===== */
+  &>div:nth-child(2) {
+    display: block;
+    width: 100%;
+    max-width: 48.8rem;
+    height: 48.8rem;
+
+    & .content {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    & img {
+      position: absolute;
+      width: 100%;
+    }
+
+    & img[src*="ellipse"] {
+      transform: translateX(200%);
+      width: 94%;
+      top: 3%;
+      left: 3%;
+      animation: slideIn 3s ease forwards;
+    }
+
+    & img[src*="patins"] {
+      z-index: 1;
+      transform: translateX(200%);
+      animation: slideIn 3s 200ms ease forwards;
+    }
+
+    & img[src*="stars-a"] {
+      max-width: 8.8rem;
+      top: 30%;
+      z-index: 0;
+      opacity: 0;
+      transform: translateX(600%);
+      animation: slideIn 2s 800ms ease both, appear 100ms 800ms both;
+    }
+
+    & img[src*="stars-b"] {
+      max-width: 4rem;
+      right: 0;
+      bottom: 35%;
+      transform: translateX(400%);
+      animation: slideIn 2.2s 800ms ease both;
+    }
+  }
+}
+
+@keyframes slideIn  {
+  50% {
+    transform: translateX(-20px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  /* Radical Static */
+  0%, 22% {
+    transform: translateY(0);
+  }
+  
+  /* Divertida In */
+  23% { transform: translateY(calc(-8rem - 15px)); }
+  25% { transform: translateY(calc(-8rem + 10px)); }
+  27% { transform: translateY(calc(-8rem -5px)); }
+  29% { transform: translateY(calc(-8rem + 5px)); }
+
+  /* Divertida Static */
+  33%, 55% {
+    transform: translateY(-8rem);
+  }
+  
+  /* Saudável In */
+  56% { transform: translateY(calc(-16rem - 15px)); }
+  58% { transform: translateY(calc(-16rem + 10px)); }
+  60% { transform: translateY(calc(-16rem -5px)); }
+  62% { transform: translateY(calc(-16rem + 5px)); }
+
+  /* Saudável Static */
+  66%, 88% {
+    transform: translateY(-16rem);
+  }
+  
+  /* Radical In */
+  89% { transform: translateY(calc(-24rem - 15px)); }
+  91% { transform: translateY(calc(-24rem + 10px)); }
+  93% { transform: translateY(calc(-24rem -5px)); }
+  95% { transform: translateY(calc(-24rem + 5px)); }
+
+  100% {
+    transform: translateY(-24rem);
+  }
+}
+
+@media (width <= 425px) {
+  section.hero {
+    flex-direction: column-reverse;
+
+    & h1 div {
+      height: 4rem;
+      vertical-align: top;
+    }
+
+    /* ===== PATINS ===== */
+    &>div:nth-child(2) {
+      display: block;
+      width: 100%;
+      max-width: 31.2rem;
+      height: 31.2rem;
+    }
+
+    /* ===== BUTTONS ===== */
+    & .buttons {
+      gap: 2.4rem;
+      flex-direction: column-reverse;
+      width: fit-content;
+    }
+  }
+
+  @keyframes slideUp {
+    /* Radical Static */
+    0%, 22% {
+      transform: translateY(0);
+    }
+    
+    /* Divertida In */
+    23% { transform: translateY(calc(-4rem - 7.5px)); }
+    25% { transform: translateY(calc(-4rem + 5px)); }
+    27% { transform: translateY(calc(-4rem -2.5px)); }
+    29% { transform: translateY(calc(-4rem + 2.5px)); }
+
+    /* Divertida Static */
+    33%, 55% {
+      transform: translateY(-4rem);
+    }
+    
+    /* Saudável In */
+    56% { transform: translateY(calc(-8rem - 7.5px)); }
+    58% { transform: translateY(calc(-8rem + 5px)); }
+    60% { transform: translateY(calc(-8rem -2.5px)); }
+    62% { transform: translateY(calc(-8rem + 2.5px)); }
+
+    /* Saudável Static */
+    66%, 88% {
+      transform: translateY(-8rem);
+    }
+    
+    /* Radical In */
+    89% { transform: translateY(calc(-12rem - 15px)); }
+    91% { transform: translateY(calc(-12rem + 10px)); }
+    93% { transform: translateY(calc(-12rem -5px)); }
+    95% { transform: translateY(calc(-12rem + 5px)); }
+
+    100% {
+      transform: translateY(-12rem)
+    }
+  }
+}

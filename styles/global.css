@@ -1,0 +1,60 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* ===== FONTS ===== */
+  font-size: 62.5%;
+  --ff-montserrat: "Montserrat", sans-serif;
+  --ff-syne: "Syne", sans-serif;
+  --heading-A: 700 6.4rem/125% var(--ff-syne);
+  --heading-B: 700 4rem/120% var(--ff-syne);
+  --button-label: 500 1.6rem/150% var(--ff-montserrat);
+  --span: 500 1.4rem/150% var(--ff-montserrat);
+
+  /* ===== BRAND ===== */
+  --snitap-sun: #FFCD1E;
+  --snitap-sky-mid: #06B6D4;
+  --snitap-sky-light: #67E8F9;
+  --snitap-joy-mid: #DB2777;
+  --snitap-joy-light: #F472B6;
+  --snitap-leaf-mid: #16A34A;
+
+  /* ===== BASE ===== */
+  --text: #000000;
+  --highlights: #000000;
+  --background: #FAFAFA;
+}
+
+.container {
+  padding-inline: 3.2rem;
+}
+
+body {
+  font: 500 1.6rem/150% var(--ff-montserrat);
+}
+
+h1, h2 { color: var(--text); }
+
+h1 { font: var(--heading-A); }
+
+h2 { font: var(--heading-B); }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (width <= 425px) {
+  :root {
+    --heading-A: 700 3.2rem/125% var(--ff-syne);
+    --heading-B: 700 2.4rem/120% var(--ff-syne);
+    --span: 500 1.2rem/150% var(--ff-montserrat);
+  }
+
+  .container {
+    padding-inline: 2.4rem;
+  }
+}
